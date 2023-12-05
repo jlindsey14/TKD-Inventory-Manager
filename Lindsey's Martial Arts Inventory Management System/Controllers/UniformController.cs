@@ -19,24 +19,27 @@ namespace Lindsey_s_Martial_Arts_Inventory_Management_System.Controllers
         }
 
         [HttpGet]
-        public IList<Uniform> GetAllUniforms()
+        public ActionResult<IList<Uniform>> GetAllUniforms()
         {
-            return uniformDao.GetAllUniforms();
+            IList<Uniform> uniforms = uniformDao.GetAllUniforms();
+
+            if(uniforms.Count == 0)
+            {
+                return NoContent();
+            }
+            return Ok(uniforms);
         }
 
         [HttpGet("{size}")]
-        public ActionResult<Uniform> GetUniformBySize(int size)
+        public ActionResult<IList<Uniform>> GetUniformBySize(int size)
         {
-            Uniform uniform = uniformDao.GetUniformBySize(size);
+            IList<Uniform> uniforms = uniformDao.GetUniformBySize(size);
 
-            if (uniform == null)
+            if (uniforms.Count == 0)
             {
-                return NotFound();
+                return NoContent();
             }
-            else
-            {
-                return Ok(uniform);
-            }
+            return Ok(uniforms);
         }
     }
 }

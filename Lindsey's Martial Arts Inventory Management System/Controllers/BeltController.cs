@@ -18,21 +18,39 @@ namespace Lindsey_s_Martial_Arts_Inventory_Management_System.Controllers
         }
 
         [HttpGet]
-        public IList<Belt> GetAllBelts()
+        public ActionResult<IList<Belt>> GetAllBelts()
         {
-            return beltDao.GetAllBelts();
+            IList<Belt> belts = beltDao.GetAllBelts();
+
+            if(belts.Count == 0)
+            {
+                return NoContent();
+            }
+            return Ok(belts);
         }
 
         [HttpGet("{color}")]
-        public IList<Belt> GetBeltByColor(string color)
+        public ActionResult<IList<Belt>> GetBeltByColor(string color)
         {
-            return beltDao.GetBeltByColor(color);
+            IList<Belt> belts = beltDao.GetBeltByColor(color);
+
+            if(belts.Count == 0)
+            {
+                return NoContent();
+            }
+            return Ok(belts);
         }
 
         [HttpGet("{size}")]
-        public IList<Belt> GetBeltBySize(int size)
+        public ActionResult<IList<Belt>> GetBeltBySize(int size)
         {
-            return beltDao.GetBeltBySize(size);
+            IList<Belt> belts = beltDao.GetBeltBySize(size);
+
+            if(belts.Count == 0)
+            {
+                return NoContent();
+            }
+            return Ok(belts);
         }
     }
 }

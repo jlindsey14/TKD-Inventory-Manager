@@ -47,6 +47,8 @@ namespace Lindsey_s_Martial_Arts_Inventory_Management_System
 
             app.UseRouting();
 
+            app.UseCors();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

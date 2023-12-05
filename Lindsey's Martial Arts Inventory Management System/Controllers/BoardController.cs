@@ -18,9 +18,15 @@ namespace Lindsey_s_Martial_Arts_Inventory_Management_System.Controllers
         }
 
         [HttpGet]
-        public IList<Board> GetAllBoards()
+        public ActionResult<IList<Board>> GetAllBoards()
         {
-            return boardDao.GetAllBoards();
+            IList<Board> boards = boardDao.GetAllBoards();
+
+            if(boards.Count == 0)
+            {
+                return NoContent();
+            }
+            return Ok(boards);
         }
 
         [HttpGet("{thickness}")]
@@ -30,12 +36,9 @@ namespace Lindsey_s_Martial_Arts_Inventory_Management_System.Controllers
 
             if (board == null)
             {
-                return NotFound();
+                return NoContent();
             }
-            else
-            {
-                return Ok(board);
-            }
+            return Ok(board);
         }
     }
 }
