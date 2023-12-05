@@ -475,11 +475,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\j_lin\\OneDrive\\Documents\\Programming Workspace\\Personal projects\\Projects\\TKD Inventory\\Lindsey's Martial Arts Inventory Management System\\Lindsey's Martial Arts Inventory Management System.csproj",
+      "projectUniqueName": "C:\\Users\\j_lin\\OneDrive\\Documents\\Programming Workspace\\TKD-Inventory-Manager\\Lindsey's Martial Arts Inventory Management System\\Lindsey's Martial Arts Inventory Management System.csproj",
       "projectName": "Lindsey's Martial Arts Inventory Management System",
-      "projectPath": "C:\\Users\\j_lin\\OneDrive\\Documents\\Programming Workspace\\Personal projects\\Projects\\TKD Inventory\\Lindsey's Martial Arts Inventory Management System\\Lindsey's Martial Arts Inventory Management System.csproj",
+      "projectPath": "C:\\Users\\j_lin\\OneDrive\\Documents\\Programming Workspace\\TKD-Inventory-Manager\\Lindsey's Martial Arts Inventory Management System\\Lindsey's Martial Arts Inventory Management System.csproj",
       "packagesPath": "C:\\Users\\j_lin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\j_lin\\OneDrive\\Documents\\Programming Workspace\\Personal projects\\Projects\\TKD Inventory\\Lindsey's Martial Arts Inventory Management System\\obj\\",
+      "outputPath": "C:\\Users\\j_lin\\OneDrive\\Documents\\Programming Workspace\\TKD-Inventory-Manager\\Lindsey's Martial Arts Inventory Management System\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\j_lin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -524,6 +524,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.1.10, 3.1.10]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.32, 3.1.32]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
