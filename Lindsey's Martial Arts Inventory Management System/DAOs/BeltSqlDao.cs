@@ -24,7 +24,7 @@ namespace Lindsey_s_Martial_Arts_Inventory_Management_System.DAOs
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM belts;", conn);
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM belts;", conn);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -53,7 +53,7 @@ namespace Lindsey_s_Martial_Arts_Inventory_Management_System.DAOs
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM belts WHERE color = @color;", conn);
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM belts WHERE color = @color;", conn);
                     cmd.Parameters.AddWithValue("@color", color);
 
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -83,7 +83,7 @@ namespace Lindsey_s_Martial_Arts_Inventory_Management_System.DAOs
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM belts WHERE size = @size;", conn);
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM belts WHERE size = @size;", conn);
                     cmd.Parameters.AddWithValue("@size", size);
 
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -107,11 +107,11 @@ namespace Lindsey_s_Martial_Arts_Inventory_Management_System.DAOs
         {
             Belt b = new Belt()
             {
-                Id = Convert.ToInt32(reader["id"]),
+                Id = Convert.ToInt32(reader["belt_id"]),
                 Size = Convert.ToInt32(reader["size"]),
                 Color = Convert.ToString(reader["color"]),
                 IsLittleTiger = Convert.ToBoolean(reader["is_little_tiger"]),
-                NumAvailable = Convert.ToInt32(reader["num_available"]),
+                NumAvailable = Convert.ToInt32(reader["number_available"]),
             };
             return b;
         }

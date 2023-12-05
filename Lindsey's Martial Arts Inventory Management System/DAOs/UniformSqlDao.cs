@@ -25,7 +25,7 @@ namespace Lindsey_s_Martial_Arts_Inventory_Management_System.DAOs
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM uniforms;", conn);
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM uniforms;", conn);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -44,9 +44,9 @@ namespace Lindsey_s_Martial_Arts_Inventory_Management_System.DAOs
             }
         }
 
-        public Uniform GetUniformBySize(int size)
+        public IList<Uniform> GetUniformBySize(int size)
         {
-            Uniform uniform = new Uniform();
+            IList<Uniform> uniforms = new List<Uniform>();
 
             try
             {
@@ -54,22 +54,24 @@ namespace Lindsey_s_Martial_Arts_Inventory_Management_System.DAOs
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM uniforms WHERE size = @size;", conn);
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM uniforms WHERE size = @size;", conn);
                     cmd.Parameters.AddWithValue("@size", size);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     if (reader.Read())
                     {
+                        Uniform uniform = new Uniform();
                         uniform = CreateUniformFromReader(reader);
+                        uniforms.Add(uniform);
                     }
-                    return uniform;
+                    return uniforms;
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return uniform;
+                return uniforms;
             }
         }
 
@@ -77,10 +79,10 @@ namespace Lindsey_s_Martial_Arts_Inventory_Management_System.DAOs
         {
             Uniform u = new Uniform()
             {
-                Id = Convert.ToInt32(reader["id"]),
+                Id = Convert.ToInt32(reader["uniform_id"]),
                 Size = Convert.ToInt32(reader["size"]),
-                IsBlackBeltClubUniform = Convert.ToBoolean(reader["is_black_belt_club_uniform"]),
-                NumAvailable = Convert.ToInt32(reader["num_available"]),
+                IsBlackBeltClubUniform = Convert.ToBoolean(reader["is_black_belt"]),
+                NumAvailable = Convert.ToInt32(reader["number_available"]),
             };
             return u;
         }

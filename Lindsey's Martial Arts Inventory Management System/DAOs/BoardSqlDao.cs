@@ -24,7 +24,7 @@ namespace Lindsey_s_Martial_Arts_Inventory_Management_System.DAOs
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM boards;", conn);
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM boards;", conn);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -53,7 +53,7 @@ namespace Lindsey_s_Martial_Arts_Inventory_Management_System.DAOs
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM boards WHERE thickness = @thickness;", conn);
+                    SqlCommand cmd = new SqlCommand(@"SELECT * FROM boards WHERE thickness = @thickness;", conn);
                     cmd.Parameters.AddWithValue("@thickness", thickness);
 
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -76,7 +76,7 @@ namespace Lindsey_s_Martial_Arts_Inventory_Management_System.DAOs
         {
             Board b = new Board()
             {
-                Id = Convert.ToInt32(reader["id"]),
+                Id = Convert.ToInt32(reader["board_id"]),
                 Thickness = Convert.ToString(reader["thickness"]),
                 NumAvailable = Convert.ToInt32(reader["num_available"]),
             };
